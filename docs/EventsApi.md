@@ -4,9 +4,34 @@ All URIs are relative to *https://virtserver.swaggerhub.com/universe-sh/Houston/
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**AddEvents**](EventsApi.md#AddEvents) | **Post** /v1/events | 
 [**ListEvents**](EventsApi.md#ListEvents) | **Get** /v1/events | 
 [**ReadEvent**](EventsApi.md#ReadEvent) | **Get** /v1/events/{event} | 
 
+
+# **AddEvents**
+> Generic AddEvents(ctx, )
+
+
+Add properties of events
+
+### Required Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**Generic**](generic.md)
+
+### Authorization
+
+[okta_jwt](../README.md#okta_jwt)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **ListEvents**
 > Events ListEvents(ctx, )

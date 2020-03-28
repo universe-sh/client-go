@@ -825,6 +825,29 @@ paths:
       - okta_jwt: []
       x-google-backend:
         address: "https://europe-west1-${project}.cloudfunctions.net/http-events-list"
+    post:
+      tags:
+      - "events"
+      description: "Add properties of events"
+      operationId: "addEvents"
+      parameters: []
+      responses:
+        "201":
+          description: "add events success"
+          schema:
+            $ref: "#/definitions/generic"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the events"
+        "409":
+          description: "Project name already exists."
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-events-add"
   /v1/events/{event}:
     get:
       tags:
@@ -907,14 +930,19 @@ definitions:
       pools:
       - launch_specification:
           root_disk:
-            size: "50"
+            size: 50
             ami: "projects/gke-node-images/global/images/gke-1147-gke10-cos-u-73-11647-293-0-v191004-c-pre"
             type: "pd-standard"
           config:
-            key: "{\"europe-west1-b\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
-              },\"europe-west1-c\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
-              },\"europe-west1-d\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
-              }}"
+            europe-west1-b:
+              subnetwork: "sub-0"
+              template: "gke-standard-cluster--standard-pool-1-1b307ff8"
+            europe-west1-c:
+              subnetwork: "sub-0"
+              template: "gke-standard-cluster--standard-pool-1-1b307ff8"
+            europe-west1-d:
+              subnetwork: "sub-0"
+              template: "gke-standard-cluster--standard-pool-1-1b307ff8"
         updated_at: "2012-01-01T12:00:00.000Z"
         name: "default-pool"
         description: "default pool of Kubernetes"
@@ -932,14 +960,19 @@ definitions:
         actived: true
       - launch_specification:
           root_disk:
-            size: "50"
+            size: 50
             ami: "projects/gke-node-images/global/images/gke-1147-gke10-cos-u-73-11647-293-0-v191004-c-pre"
             type: "pd-standard"
           config:
-            key: "{\"europe-west1-b\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
-              },\"europe-west1-c\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
-              },\"europe-west1-d\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
-              }}"
+            europe-west1-b:
+              subnetwork: "sub-0"
+              template: "gke-standard-cluster--standard-pool-1-1b307ff8"
+            europe-west1-c:
+              subnetwork: "sub-0"
+              template: "gke-standard-cluster--standard-pool-1-1b307ff8"
+            europe-west1-d:
+              subnetwork: "sub-0"
+              template: "gke-standard-cluster--standard-pool-1-1b307ff8"
         updated_at: "2012-01-01T12:00:00.000Z"
         name: "default-pool"
         description: "default pool of Kubernetes"
@@ -993,14 +1026,19 @@ definitions:
     example:
       launch_specification:
         root_disk:
-          size: "50"
+          size: 50
           ami: "projects/gke-node-images/global/images/gke-1147-gke10-cos-u-73-11647-293-0-v191004-c-pre"
           type: "pd-standard"
         config:
-          key: "{\"europe-west1-b\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
-            },\"europe-west1-c\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
-            },\"europe-west1-d\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
-            }}"
+          europe-west1-b:
+            subnetwork: "sub-0"
+            template: "gke-standard-cluster--standard-pool-1-1b307ff8"
+          europe-west1-c:
+            subnetwork: "sub-0"
+            template: "gke-standard-cluster--standard-pool-1-1b307ff8"
+          europe-west1-d:
+            subnetwork: "sub-0"
+            template: "gke-standard-cluster--standard-pool-1-1b307ff8"
       updated_at: "2012-01-01T12:00:00.000Z"
       name: "default-pool"
       description: "default pool of Kubernetes"
@@ -1261,10 +1299,6 @@ definitions:
         type: "string"
       template:
         type: "string"
-    example: "{\"europe-west1-b\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
-      },\"europe-west1-c\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
-      },\"europe-west1-d\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
-      }}"
   pool_launch_specification_root_disk:
     type: "object"
     properties:
@@ -1272,13 +1306,13 @@ definitions:
         type: "string"
         example: "projects/gke-node-images/global/images/gke-1147-gke10-cos-u-73-11647-293-0-v191004-c-pre"
       size:
-        type: "string"
-        example: "50"
+        type: "integer"
+        example: 50
       type:
         type: "string"
         example: "pd-standard"
     example:
-      size: "50"
+      size: 50
       ami: "projects/gke-node-images/global/images/gke-1147-gke10-cos-u-73-11647-293-0-v191004-c-pre"
       type: "pd-standard"
   pool_launch_specification:
@@ -1286,20 +1320,35 @@ definitions:
     properties:
       config:
         type: "object"
+        example:
+          europe-west1-b:
+            subnetwork: "sub-0"
+            template: "gke-standard-cluster--standard-pool-1-1b307ff8"
+          europe-west1-c:
+            subnetwork: "sub-0"
+            template: "gke-standard-cluster--standard-pool-1-1b307ff8"
+          europe-west1-d:
+            subnetwork: "sub-0"
+            template: "gke-standard-cluster--standard-pool-1-1b307ff8"
         additionalProperties:
           $ref: "#/definitions/pool_launch_specification_config"
       root_disk:
         $ref: "#/definitions/pool_launch_specification_root_disk"
     example:
       root_disk:
-        size: "50"
+        size: 50
         ami: "projects/gke-node-images/global/images/gke-1147-gke10-cos-u-73-11647-293-0-v191004-c-pre"
         type: "pd-standard"
       config:
-        key: "{\"europe-west1-b\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
-          },\"europe-west1-c\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
-          },\"europe-west1-d\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
-          }}"
+        europe-west1-b:
+          subnetwork: "sub-0"
+          template: "gke-standard-cluster--standard-pool-1-1b307ff8"
+        europe-west1-c:
+          subnetwork: "sub-0"
+          template: "gke-standard-cluster--standard-pool-1-1b307ff8"
+        europe-west1-d:
+          subnetwork: "sub-0"
+          template: "gke-standard-cluster--standard-pool-1-1b307ff8"
   pool_autoscaling:
     type: "object"
     properties:
@@ -1313,7 +1362,7 @@ definitions:
         items:
           type: "string"
       preemptible_pourcent:
-        type: "integer"
+        type: "number"
         example: 50
       max_cpu:
         type: "integer"

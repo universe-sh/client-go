@@ -22,6 +22,7 @@ All URIs are relative to *https://virtserver.swaggerhub.com/universe-sh/Houston/
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AccountApi* | [**ListAccount**](docs/AccountApi.md#listaccount) | **Get** /v1/account | 
+*EventsApi* | [**AddEvents**](docs/EventsApi.md#addevents) | **Post** /v1/events | 
 *EventsApi* | [**ListEvents**](docs/EventsApi.md#listevents) | **Get** /v1/events | 
 *EventsApi* | [**ReadEvent**](docs/EventsApi.md#readevent) | **Get** /v1/events/{event} | 
 *SatellitesApi* | [**AddPools**](docs/SatellitesApi.md#addpools) | **Post** /v1/satellites/{cloud}/{satellite}/pools | 
