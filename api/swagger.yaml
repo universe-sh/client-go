@@ -1,0 +1,1431 @@
+---
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: "Universe.sh API houston"
+  contact:
+    email: "developper@universe.sh"
+host: "virtserver.swaggerhub.com"
+basePath: "/universe-sh/Houston/1.0.0"
+schemes:
+- "https"
+consumes:
+- "application/json"
+produces:
+- "application/json"
+paths:
+  /v1/account:
+    get:
+      tags:
+      - "account"
+      description: "List properties of account"
+      operationId: "listAccount"
+      parameters: []
+      responses:
+        "200":
+          description: "list account properties success"
+          schema:
+            $ref: "#/definitions/account"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the account"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-account-list"
+  /v1/teams:
+    get:
+      tags:
+      - "teams"
+      description: "List properties of teams"
+      operationId: "listTeams"
+      parameters: []
+      responses:
+        "200":
+          description: "list teams properties success"
+          schema:
+            $ref: "#/definitions/teams"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the teams"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-teams-list"
+    post:
+      tags:
+      - "teams"
+      description: "Add properties of teams"
+      operationId: "addTeams"
+      parameters: []
+      responses:
+        "201":
+          description: "add teams success"
+          schema:
+            $ref: "#/definitions/generic"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the teams"
+        "409":
+          description: "Project name already exists."
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-teams-add"
+  /v1/teams/{team}:
+    get:
+      tags:
+      - "teams"
+      description: "Read properties of team"
+      operationId: "readTeam"
+      parameters:
+      - name: "team"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Team"
+      responses:
+        "200":
+          description: "read teams properties success"
+          schema:
+            $ref: "#/definitions/team"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the team"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-team-read"
+    put:
+      tags:
+      - "teams"
+      description: "Update properties of team"
+      operationId: "updateTeam"
+      parameters:
+      - name: "team"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Team"
+      responses:
+        "200":
+          description: "update teams properties success"
+          schema:
+            $ref: "#/definitions/team"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the team"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-team-update"
+    delete:
+      tags:
+      - "teams"
+      description: "Delete properties of team"
+      operationId: "deleteTeam"
+      parameters:
+      - name: "team"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Team"
+      responses:
+        "200":
+          description: "delete teams properties success"
+          schema:
+            $ref: "#/definitions/generic"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the team"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-team-delete"
+  /v1/teams/{team}/preferences:
+    get:
+      tags:
+      - "teams"
+      description: "Read properties of preferences"
+      operationId: "readPreferences"
+      parameters:
+      - name: "team"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Team"
+      responses:
+        "200":
+          description: "read teams properties success"
+          schema:
+            $ref: "#/definitions/preferences"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the preferences"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-preferences-read"
+    put:
+      tags:
+      - "teams"
+      description: "Update properties of preferences"
+      operationId: "updatePreferences"
+      parameters:
+      - name: "team"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Team"
+      responses:
+        "200":
+          description: "update teams properties success"
+          schema:
+            $ref: "#/definitions/preferences"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the preferences"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-preferences-update"
+  /v1/teams/{team}/invoices:
+    get:
+      tags:
+      - "teams"
+      description: "List properties of invoices"
+      operationId: "listInvoices"
+      parameters:
+      - name: "team"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Team"
+      responses:
+        "200":
+          description: "list teams properties success"
+          schema:
+            $ref: "#/definitions/invoices"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the invoices"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-invoices-list"
+  /v1/teams/{team}/invoices/{invoice}:
+    get:
+      tags:
+      - "teams"
+      description: "Read properties of invoice"
+      operationId: "readInvoice"
+      parameters:
+      - name: "team"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Team"
+      - name: "invoice"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Invoice"
+      responses:
+        "200":
+          description: "read teams properties success"
+          schema:
+            $ref: "#/definitions/invoice"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the invoice"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-invoice-read"
+  /v1/teams/{team}/invitations:
+    get:
+      tags:
+      - "teams"
+      description: "List properties of invitations"
+      operationId: "listInvitations"
+      parameters:
+      - name: "team"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Team"
+      responses:
+        "200":
+          description: "list teams properties success"
+          schema:
+            $ref: "#/definitions/invitations"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the invitations"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-invitations-list"
+  /v1/teams/invitations/{invitation}:
+    get:
+      tags:
+      - "teams"
+      description: "Read properties of invitations"
+      operationId: "readInvitations"
+      parameters:
+      - name: "invitation"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Invitation"
+      responses:
+        "200":
+          description: "read teams properties success"
+          schema:
+            $ref: "#/definitions/invitations"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the invitations"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-invitations-read"
+    put:
+      tags:
+      - "teams"
+      description: "Update properties of invitations"
+      operationId: "updateInvitations"
+      parameters:
+      - name: "invitation"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Invitation"
+      responses:
+        "200":
+          description: "update teams properties success"
+          schema:
+            $ref: "#/definitions/invitations"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the invitations"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-invitations-update"
+    delete:
+      tags:
+      - "teams"
+      description: "Delete properties of invitations"
+      operationId: "deleteInvitations"
+      parameters:
+      - name: "invitation"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Invitation"
+      responses:
+        "200":
+          description: "delete teams properties success"
+          schema:
+            $ref: "#/definitions/generic"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the invitations"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-invitations-delete"
+  /v1/teams/invitations/{invitation}/accept:
+    get:
+      tags:
+      - "teams"
+      description: "Read properties of invitationsaccept"
+      operationId: "readInvitationsAccept"
+      parameters:
+      - name: "invitation"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Invitation"
+      responses:
+        "200":
+          description: "read teams properties success"
+          schema:
+            $ref: "#/definitions/invitationsAccept"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the invitationsaccept"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-invitationsaccept-read"
+  /v1/satellites/{cloud}:
+    get:
+      tags:
+      - "satellites"
+      description: "List properties of satellites"
+      operationId: "listSatellites"
+      parameters:
+      - name: "cloud"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Cloud"
+      responses:
+        "200":
+          description: "list satellites properties success"
+          schema:
+            $ref: "#/definitions/satellites"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the satellites"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-satellites-list"
+    post:
+      tags:
+      - "satellites"
+      description: "Add properties of satellites"
+      operationId: "addSatellites"
+      parameters:
+      - name: "cloud"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Cloud"
+      responses:
+        "201":
+          description: "add satellites success"
+          schema:
+            $ref: "#/definitions/generic"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the satellites"
+        "409":
+          description: "Project name already exists."
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-satellites-add"
+  /v1/satellites/{cloud}/{satellite}:
+    get:
+      tags:
+      - "satellites"
+      description: "Read properties of satellite"
+      operationId: "readSatellite"
+      parameters:
+      - name: "cloud"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Cloud"
+      - name: "satellite"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Satellite"
+      responses:
+        "200":
+          description: "read satellites properties success"
+          schema:
+            $ref: "#/definitions/satellite"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the satellite"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-satellite-read"
+    put:
+      tags:
+      - "satellites"
+      description: "Update properties of satellite"
+      operationId: "updateSatellite"
+      parameters:
+      - name: "cloud"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Cloud"
+      - name: "satellite"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Satellite"
+      responses:
+        "200":
+          description: "update satellites properties success"
+          schema:
+            $ref: "#/definitions/satellite"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the satellite"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-satellite-update"
+    delete:
+      tags:
+      - "satellites"
+      description: "Delete properties of satellite"
+      operationId: "deleteSatellite"
+      parameters:
+      - name: "cloud"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Cloud"
+      - name: "satellite"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Satellite"
+      responses:
+        "200":
+          description: "delete satellites properties success"
+          schema:
+            $ref: "#/definitions/generic"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the satellite"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-satellite-delete"
+  /v1/satellites/{cloud}/{satellite}/pools:
+    get:
+      tags:
+      - "satellites"
+      description: "List properties of pools"
+      operationId: "listPools"
+      parameters:
+      - name: "cloud"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Cloud"
+      - name: "satellite"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Satellite"
+      responses:
+        "200":
+          description: "list satellites properties success"
+          schema:
+            $ref: "#/definitions/pools"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the pools"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-pools-list"
+    post:
+      tags:
+      - "satellites"
+      description: "Add properties of pools"
+      operationId: "addPools"
+      parameters:
+      - name: "cloud"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Cloud"
+      - name: "satellite"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Satellite"
+      responses:
+        "201":
+          description: "add pools success"
+          schema:
+            $ref: "#/definitions/generic"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the pools"
+        "409":
+          description: "Project name already exists."
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-pools-add"
+  /v1/satellites/{cloud}/{satellite}/{pool}:
+    get:
+      tags:
+      - "satellites"
+      description: "Read properties of pool"
+      operationId: "readPool"
+      parameters:
+      - name: "cloud"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Cloud"
+      - name: "satellite"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Satellite"
+      - name: "pool"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Pool"
+      responses:
+        "200":
+          description: "read satellites properties success"
+          schema:
+            $ref: "#/definitions/pool"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the pool"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-pool-read"
+    put:
+      tags:
+      - "satellites"
+      description: "Update properties of pool"
+      operationId: "updatePool"
+      parameters:
+      - name: "cloud"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Cloud"
+      - name: "satellite"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Satellite"
+      - name: "pool"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Pool"
+      responses:
+        "200":
+          description: "update satellites properties success"
+          schema:
+            $ref: "#/definitions/pool"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the pool"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-pool-update"
+    delete:
+      tags:
+      - "satellites"
+      description: "Delete properties of pool"
+      operationId: "deletePool"
+      parameters:
+      - name: "cloud"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Cloud"
+      - name: "satellite"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Satellite"
+      - name: "pool"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Pool"
+      responses:
+        "200":
+          description: "delete satellites properties success"
+          schema:
+            $ref: "#/definitions/generic"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the pool"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-pool-delete"
+  /v1/satellites/{cloud}/{satellite}/{pool}/metrics:
+    get:
+      tags:
+      - "satellites"
+      description: "List properties of metrics"
+      operationId: "listMetrics"
+      parameters:
+      - name: "cloud"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Cloud"
+      - name: "satellite"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Satellite"
+      - name: "pool"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Pool"
+      responses:
+        "200":
+          description: "list satellites properties success"
+          schema:
+            $ref: "#/definitions/metrics"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the metrics"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-metrics-list"
+    post:
+      tags:
+      - "satellites"
+      description: "Create properties of metrics"
+      operationId: "createMetrics"
+      parameters:
+      - name: "cloud"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Cloud"
+      - name: "satellite"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Satellite"
+      - name: "pool"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Pool"
+      responses:
+        "201":
+          description: "create metrics success"
+          schema:
+            $ref: "#/definitions/generic"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the metrics"
+        "409":
+          description: "Project name already exists."
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-metrics-create"
+  /v1/events:
+    get:
+      tags:
+      - "events"
+      description: "List properties of events"
+      operationId: "listEvents"
+      parameters: []
+      responses:
+        "200":
+          description: "list events properties success"
+          schema:
+            $ref: "#/definitions/events"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the events"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-events-list"
+  /v1/events/{event}:
+    get:
+      tags:
+      - "events"
+      description: "Read properties of event"
+      operationId: "readEvent"
+      parameters:
+      - name: "event"
+        in: "path"
+        required: true
+        type: "string"
+        x-exportParamName: "Event"
+      responses:
+        "200":
+          description: "read events properties success"
+          schema:
+            $ref: "#/definitions/event"
+        "401":
+          description: "User need to log in first"
+        "403":
+          description: "User does not have permission to get summary of the event"
+        "500":
+          description: "Internal errors"
+      security:
+      - okta_jwt: []
+      x-google-backend:
+        address: "https://europe-west1-${project}.cloudfunctions.net/http-event-read"
+securityDefinitions:
+  okta_jwt:
+    type: "oauth2"
+    authorizationUrl: ""
+    flow: "implicit"
+    x-google-issuer: "https://auth.universe.sh/oauth2/aus13l4gz9JmVPbv14x6"
+    x-google-jwks_uri: "https://auth.universe.sh/oauth2/v1/keys"
+    x-google-audiences: "api://universe.sh"
+definitions:
+  satellites:
+    type: "array"
+    items:
+      $ref: "#/definitions/satellite"
+  satellite:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        example: "c4a6c7aa-558e-4ce3-88b5-d56560cd23ba"
+      name:
+        type: "string"
+        example: "standard-cluster-2"
+      description:
+        type: "string"
+        example: "kubernetes production"
+      region:
+        type: "string"
+        example: "europe-west1"
+      network:
+        type: "string"
+        example: "vpc-labs-internal-0"
+      pools:
+        type: "array"
+        items:
+          $ref: "#/definitions/pool"
+      tags:
+        type: "object"
+        additionalProperties:
+          type: "string"
+      actived:
+        type: "boolean"
+        example: true
+      created_at:
+        type: "string"
+        example: "2012-01-01T12:00:00.000Z"
+      updated_at:
+        type: "string"
+        example: "2012-01-01T12:00:00.000Z"
+    example:
+      updated_at: "2012-01-01T12:00:00.000Z"
+      name: "standard-cluster-2"
+      description: "kubernetes production"
+      pools:
+      - launch_specification:
+          root_disk:
+            size: "50"
+            ami: "projects/gke-node-images/global/images/gke-1147-gke10-cos-u-73-11647-293-0-v191004-c-pre"
+            type: "pd-standard"
+          config:
+            key: "{\"europe-west1-b\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
+              },\"europe-west1-c\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
+              },\"europe-west1-d\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
+              }}"
+        updated_at: "2012-01-01T12:00:00.000Z"
+        name: "default-pool"
+        description: "default pool of Kubernetes"
+        created_at: "2012-01-01T12:00:00.000Z"
+        id: "e33d92b4-268e-4684-a264-60c18ff74c7b"
+        autoscaling:
+          engine:
+          - "n1-highcpu-2"
+          - "n1-highcpu-4"
+          - "n1-standard-2"
+          - "n1-standard-4"
+          preemptible_pourcent: 50
+          max_cpu: 10000
+          max_memory: 6000
+        actived: true
+      - launch_specification:
+          root_disk:
+            size: "50"
+            ami: "projects/gke-node-images/global/images/gke-1147-gke10-cos-u-73-11647-293-0-v191004-c-pre"
+            type: "pd-standard"
+          config:
+            key: "{\"europe-west1-b\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
+              },\"europe-west1-c\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
+              },\"europe-west1-d\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
+              }}"
+        updated_at: "2012-01-01T12:00:00.000Z"
+        name: "default-pool"
+        description: "default pool of Kubernetes"
+        created_at: "2012-01-01T12:00:00.000Z"
+        id: "e33d92b4-268e-4684-a264-60c18ff74c7b"
+        autoscaling:
+          engine:
+          - "n1-highcpu-2"
+          - "n1-highcpu-4"
+          - "n1-standard-2"
+          - "n1-standard-4"
+          preemptible_pourcent: 50
+          max_cpu: 10000
+          max_memory: 6000
+        actived: true
+      created_at: "2012-01-01T12:00:00.000Z"
+      id: "c4a6c7aa-558e-4ce3-88b5-d56560cd23ba"
+      region: "europe-west1"
+      actived: true
+      network: "vpc-labs-internal-0"
+      tags:
+        key: "tags"
+  pools:
+    type: "array"
+    items:
+      $ref: "#/definitions/pool"
+  pool:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        example: "e33d92b4-268e-4684-a264-60c18ff74c7b"
+      name:
+        type: "string"
+        example: "default-pool"
+      description:
+        type: "string"
+        example: "default pool of Kubernetes"
+      launch_specification:
+        $ref: "#/definitions/pool_launch_specification"
+      autoscaling:
+        $ref: "#/definitions/pool_autoscaling"
+      actived:
+        type: "boolean"
+      created_at:
+        type: "string"
+        example: "2012-01-01T12:00:00.000Z"
+      updated_at:
+        type: "string"
+        example: "2012-01-01T12:00:00.000Z"
+    example:
+      launch_specification:
+        root_disk:
+          size: "50"
+          ami: "projects/gke-node-images/global/images/gke-1147-gke10-cos-u-73-11647-293-0-v191004-c-pre"
+          type: "pd-standard"
+        config:
+          key: "{\"europe-west1-b\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
+            },\"europe-west1-c\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
+            },\"europe-west1-d\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
+            }}"
+      updated_at: "2012-01-01T12:00:00.000Z"
+      name: "default-pool"
+      description: "default pool of Kubernetes"
+      created_at: "2012-01-01T12:00:00.000Z"
+      id: "e33d92b4-268e-4684-a264-60c18ff74c7b"
+      autoscaling:
+        engine:
+        - "n1-highcpu-2"
+        - "n1-highcpu-4"
+        - "n1-standard-2"
+        - "n1-standard-4"
+        preemptible_pourcent: 50
+        max_cpu: 10000
+        max_memory: 6000
+      actived: true
+  metrics:
+    type: "array"
+    items:
+      $ref: "#/definitions/metric"
+  metric:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        example: "7cd0da2a-4c00-4d8d-b89b-83aec6a36e1c"
+      name:
+        type: "string"
+        example: "cpu-requested"
+      type:
+        type: "string"
+        example: "integer"
+      data:
+        type: "array"
+        items:
+          $ref: "#/definitions/metric_data"
+      created_at:
+        type: "string"
+        example: "2012-01-01T12:00:00.000Z"
+  teams:
+    type: "array"
+    items:
+      $ref: "#/definitions/team"
+  team:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        example: "9fed86cb-e769-42cb-b5b4-7d3f720dbcea"
+      name:
+        type: "string"
+        example: "universe-sh"
+      description:
+        type: "string"
+        example: "Universe.sh Team"
+      users:
+        type: "array"
+        example:
+        - id: "9fed86cb-e769-42cb-b5b4-7d3f720dbcea"
+          firstname: "Aurelien"
+          lastname: "Perrier"
+        - id: "e06f817a-e91b-406a-a46e-b31c33443d5f"
+          firstname: "Jonathan"
+          lastname: "Lemaine"
+        items:
+          $ref: "#/definitions/team_users"
+      created_at:
+        type: "string"
+        example: "2012-01-01T12:00:00.000Z"
+      updated_at:
+        type: "string"
+        example: "2012-01-01T12:00:00.000Z"
+    example:
+      updated_at: "2012-01-01T12:00:00.000Z"
+      name: "universe-sh"
+      description: "Universe.sh Team"
+      created_at: "2012-01-01T12:00:00.000Z"
+      id: "9fed86cb-e769-42cb-b5b4-7d3f720dbcea"
+      users:
+      - id: "9fed86cb-e769-42cb-b5b4-7d3f720dbcea"
+        firstname: "Aurelien"
+        lastname: "Perrier"
+      - id: "e06f817a-e91b-406a-a46e-b31c33443d5f"
+        firstname: "Jonathan"
+        lastname: "Lemaine"
+  invoices:
+    type: "array"
+    items:
+      $ref: "#/definitions/invoice"
+  invoice:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        example: "3f0b4c4b-f241-412e-8a33-df500f2cc4cf"
+      charges_total:
+        type: "number"
+        example: 3406
+      credits_total:
+        type: "number"
+        example: 100
+      total:
+        type: "number"
+        example: 4006
+      period_start:
+        type: "string"
+        example: "01/10/2019"
+      period_end:
+        type: "string"
+        example: "31/10/2019"
+      payed:
+        type: "boolean"
+        example: false
+      created_at:
+        type: "string"
+        example: "2012-01-01T12:00:00.000Z"
+      updated_at:
+        type: "string"
+        example: "2012-01-01T12:00:00.000Z"
+    example:
+      period_end: "31/10/2019"
+      total: 4006
+      credits_total: 100
+      updated_at: "2012-01-01T12:00:00.000Z"
+      period_start: "01/10/2019"
+      charges_total: 3406
+      created_at: "2012-01-01T12:00:00.000Z"
+      id: "3f0b4c4b-f241-412e-8a33-df500f2cc4cf"
+      payed: false
+  invitations:
+    type: "array"
+    items:
+      $ref: "#/definitions/invitation"
+  invitation:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        example: "8c9a73ed-f4fd-4c84-a03b-523011cc574a"
+      invited_by:
+        $ref: "#/definitions/invitation_invited_by"
+      team:
+        $ref: "#/definitions/invitation_team"
+      user:
+        $ref: "#/definitions/invitation_user"
+      created_at:
+        type: "string"
+        example: "2012-01-01T12:00:00.000Z"
+      updated_at:
+        type: "string"
+        example: "2012-01-01T12:00:00.000Z"
+  invitationsAccept:
+    $ref: "#/definitions/invitation"
+  preferences:
+    type: "object"
+    properties:
+      default-permission:
+        type: "string"
+        example: "admin"
+    example:
+      default-permission: "admin"
+  account:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        example: "45ea6f43-bba1-4dcc-887b-3743132a4cf6"
+      firstname:
+        type: "string"
+        example: "Aurelien"
+      lastname:
+        type: "string"
+        example: "Perrier"
+      email:
+        type: "string"
+        example: "info@universe.sh"
+      two_factor_authentication:
+        type: "boolean"
+        example: true
+      verified:
+        type: "boolean"
+        example: true
+      default_team:
+        $ref: "#/definitions/account_default_team"
+      last_login:
+        type: "string"
+        example: "2012-01-01T12:00:00.000Z"
+      created_at:
+        type: "string"
+        example: "2012-01-01T12:00:00.000Z"
+      updated_at:
+        type: "string"
+        example: "2012-01-01T12:00:00.000Z"
+    example:
+      firstname: "Aurelien"
+      updated_at: "2012-01-01T12:00:00.000Z"
+      two_factor_authentication: true
+      default_team:
+        name: "universe-sh"
+        id: "9fed86cb-e769-42cb-b5b4-7d3f720dbcea"
+      last_login: "2012-01-01T12:00:00.000Z"
+      verified: true
+      created_at: "2012-01-01T12:00:00.000Z"
+      id: "45ea6f43-bba1-4dcc-887b-3743132a4cf6"
+      email: "info@universe.sh"
+      lastname: "Perrier"
+  events:
+    type: "array"
+    items:
+      $ref: "#/definitions/event"
+  event:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        example: "4b9e6ae2-8959-4215-aa3e-97fda5536049"
+      user_id:
+        type: "string"
+        example: "4759d6c5-7c09-47fd-8f88-67edbdb93aea"
+      service:
+        type: "string"
+        example: "satellite"
+      path:
+        type: "string"
+        example: "satellites/google/4439a789-fdf3-4e1e-a8a5-8f18ea98d9a5/c3dab76d-2332-46e3-85c3-92dbe5617890"
+      method:
+        type: "string"
+        example: "PUT"
+      code:
+        type: "integer"
+        example: 401
+      created_at:
+        type: "string"
+        example: "2012-01-01T12:00:00.000Z"
+    example:
+      path: "satellites/google/4439a789-fdf3-4e1e-a8a5-8f18ea98d9a5/c3dab76d-2332-46e3-85c3-92dbe5617890"
+      code: 401
+      method: "PUT"
+      user_id: "4759d6c5-7c09-47fd-8f88-67edbdb93aea"
+      service: "satellite"
+      created_at: "2012-01-01T12:00:00.000Z"
+      id: "4b9e6ae2-8959-4215-aa3e-97fda5536049"
+  generic:
+    type: "object"
+    properties:
+      error:
+        type: "boolean"
+        example: false
+      message:
+        type: "string"
+        example: "Created"
+    example:
+      error: false
+      message: "Created"
+  pool_launch_specification_config:
+    type: "object"
+    properties:
+      subnetwork:
+        type: "string"
+      template:
+        type: "string"
+    example: "{\"europe-west1-b\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
+      },\"europe-west1-c\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
+      },\"europe-west1-d\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
+      }}"
+  pool_launch_specification_root_disk:
+    type: "object"
+    properties:
+      ami:
+        type: "string"
+        example: "projects/gke-node-images/global/images/gke-1147-gke10-cos-u-73-11647-293-0-v191004-c-pre"
+      size:
+        type: "string"
+        example: "50"
+      type:
+        type: "string"
+        example: "pd-standard"
+    example:
+      size: "50"
+      ami: "projects/gke-node-images/global/images/gke-1147-gke10-cos-u-73-11647-293-0-v191004-c-pre"
+      type: "pd-standard"
+  pool_launch_specification:
+    type: "object"
+    properties:
+      config:
+        type: "object"
+        additionalProperties:
+          $ref: "#/definitions/pool_launch_specification_config"
+      root_disk:
+        $ref: "#/definitions/pool_launch_specification_root_disk"
+    example:
+      root_disk:
+        size: "50"
+        ami: "projects/gke-node-images/global/images/gke-1147-gke10-cos-u-73-11647-293-0-v191004-c-pre"
+        type: "pd-standard"
+      config:
+        key: "{\"europe-west1-b\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
+          },\"europe-west1-c\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
+          },\"europe-west1-d\":{\"subnetwork\":\"sub-0\",\"template\":\"gke-standard-cluster--standard-pool-1-1b307ff8\"\
+          }}"
+  pool_autoscaling:
+    type: "object"
+    properties:
+      engine:
+        type: "array"
+        example:
+        - "n1-highcpu-2"
+        - "n1-highcpu-4"
+        - "n1-standard-2"
+        - "n1-standard-4"
+        items:
+          type: "string"
+      preemptible_pourcent:
+        type: "integer"
+        example: 50
+      max_cpu:
+        type: "integer"
+        example: 10000
+      max_memory:
+        type: "integer"
+        example: 6000
+    example:
+      engine:
+      - "n1-highcpu-2"
+      - "n1-highcpu-4"
+      - "n1-standard-2"
+      - "n1-standard-4"
+      preemptible_pourcent: 50
+      max_cpu: 10000
+      max_memory: 6000
+  metric_data:
+    type: "object"
+    properties:
+      value:
+        type: "integer"
+        example: 1
+      time:
+        type: "string"
+        example: "2012-01-01T12:00:00.000Z"
+  team_users:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+      firstname:
+        type: "string"
+      lastname:
+        type: "string"
+  invitation_invited_by:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        example: "5107649f-1eb2-4510-8c4a-84f0650e3cbf"
+      email:
+        type: "string"
+        example: "info@universe.sh"
+      firstname:
+        type: "string"
+        example: "Aurelien"
+      lastname:
+        type: "string"
+        example: "Perrier"
+  invitation_team:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        example: "2c15d5d2-74d1-4248-ab5b-6a9192be9deb"
+      name:
+        type: "string"
+        example: "universe-sh"
+  invitation_user:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        example: "4ef187af-4f95-4f37-9fa9-5eac7e93eacb"
+      firstname:
+        type: "string"
+        example: "Jonathan"
+      lastname:
+        type: "string"
+        example: "Lemaine"
+      email:
+        type: "string"
+        example: "info@universe.sh"
+      role:
+        type: "string"
+        example: "admin"
+  account_default_team:
+    type: "object"
+    properties:
+      id:
+        type: "string"
+        example: "9fed86cb-e769-42cb-b5b4-7d3f720dbcea"
+      name:
+        type: "string"
+        example: "universe-sh"
+    example:
+      name: "universe-sh"
+      id: "9fed86cb-e769-42cb-b5b4-7d3f720dbcea"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
+x-google-backend:
+  address: "https://houston.universe.sh"
+x-google-management:
+  metrics:
+  - name: "read-requests"
+    displayName: "Read requests"
+    valueType: "INT64"
+    metricKind: "DELTA"
+  - name: "write-requests"
+    displayName: "Write requests"
+    valueType: "INT64"
+    metricKind: "DELTA"
+  quota:
+    limits:
+    - name: "read-requests-limit"
+      metric: "read-requests"
+      unit: "1/min/{project}"
+      values:
+        STANDARD: 50
+    - name: "write-request-limit"
+      metric: "write-requests"
+      unit: "1/min/{project}"
+      values:
+        STANDARD: 20
