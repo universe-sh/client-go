@@ -12,6 +12,6 @@ package client
 
 type PoolLaunchSpecificationRootDisk struct {
 	Ami   string `json:"ami,omitempty"`
-	Size  string `json:"size,omitempty"`
+	Size  int32  `json:"size,omitempty"`
 	Type_ string `json:"type,omitempty"`
 }
