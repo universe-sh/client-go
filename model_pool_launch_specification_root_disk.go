@@ -13,5 +13,5 @@ package openapi
 type PoolLaunchSpecificationRootDisk struct {
 	Ami string `json:"ami,omitempty"`
 	Size int32 `json:"size,omitempty"`
-	Type string `json:"type,omitempty"`
+	Disk string `json:"disk,omitempty"`
 }
