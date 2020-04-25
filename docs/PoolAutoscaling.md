@@ -1,12 +1,14 @@
 # PoolAutoscaling
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Engine** | **[]string** |  | [optional] [default to null]
-**PreemptiblePourcent** | **float32** |  | [optional] [default to null]
-**MaxCpu** | **int32** |  | [optional] [default to null]
-**MaxMemory** | **int32** |  | [optional] [default to null]
+**Engine** | **[]string** |  | [optional] 
+**PreemptiblePourcent** | **float32** |  | [optional] 
+**MinInstances** | **float32** |  | [optional] 
+**MaxCpu** | **int32** |  | [optional] 
+**MaxMemory** | **int32** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

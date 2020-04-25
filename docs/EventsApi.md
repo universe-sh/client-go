@@ -1,6 +1,6 @@
 # \EventsApi
 
-All URIs are relative to *https://virtserver.swaggerhub.com/universe-sh/Houston/1.0.0*
+All URIs are relative to *http://api-houston-$.endpoints.$.cloud.goog*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -9,13 +9,17 @@ Method | HTTP request | Description
 [**ReadEvent**](EventsApi.md#ReadEvent) | **Get** /v1/events/{event} | 
 
 
-# **AddEvents**
+
+## AddEvents
+
 > Generic AddEvents(ctx, )
+
 
 
 Add properties of events
 
 ### Required Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
@@ -28,23 +32,29 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ListEvents**
-> Events ListEvents(ctx, )
+
+## ListEvents
+
+> []Event ListEvents(ctx, )
+
 
 
 List properties of events
 
 ### Required Parameters
+
 This endpoint does not need any parameter.
 
 ### Return type
 
-[**Events**](events.md)
+[**[]Event**](event.md)
 
 ### Authorization
 
@@ -52,23 +62,29 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
-# **ReadEvent**
+
+## ReadEvent
+
 > Event ReadEvent(ctx, event)
+
 
 
 Read properties of event
 
 ### Required Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-  **event** | **string**|  | 
+**ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
+**event** | **string**|  | 
 
 ### Return type
 
@@ -80,8 +96,10 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: Not defined
+- **Accept**: application/json
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints)
+[[Back to Model list]](../README.md#documentation-for-models)
+[[Back to README]](../README.md)
 
