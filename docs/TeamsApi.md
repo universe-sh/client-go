@@ -65,7 +65,7 @@ Delete properties of invitations
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**invitation** | **string**|  | 
+**invitation** | **string**| string invitation (name or id) of the invitations | 
 
 ### Return type
 
@@ -99,7 +99,7 @@ Delete properties of team
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**team** | **string**|  | 
+**team** | **string**| string team (name or id) of the team | 
 
 ### Return type
 
@@ -133,7 +133,7 @@ List properties of invitations
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**team** | **string**|  | 
+**team** | **string**| string team (name or id) of the invitations | 
 
 ### Return type
 
@@ -167,7 +167,7 @@ List properties of invoices
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**team** | **string**|  | 
+**team** | **string**| string team (name or id) of the invoices | 
 
 ### Return type
 
@@ -231,7 +231,7 @@ Read properties of invitations
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**invitation** | **string**|  | 
+**invitation** | **string**| string invitation (name or id) of the invitations | 
 
 ### Return type
 
@@ -265,7 +265,7 @@ Read properties of invitationsaccept
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**invitation** | **string**|  | 
+**invitation** | **string**| string invitation (name or id) of the invitationsaccept | 
 
 ### Return type
 
@@ -299,8 +299,8 @@ Read properties of invoice
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**team** | **string**|  | 
-**invoice** | **string**|  | 
+**team** | **string**| string team (name or id) of the invoice | 
+**invoice** | **string**| string invoice (name or id) of the invoice | 
 
 ### Return type
 
@@ -334,7 +334,7 @@ Read properties of preferences
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**team** | **string**|  | 
+**team** | **string**| string team (name or id) of the preferences | 
 
 ### Return type
 
@@ -368,7 +368,7 @@ Read properties of team
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**team** | **string**|  | 
+**team** | **string**| string team (name or id) of the team | 
 
 ### Return type
 
@@ -402,7 +402,7 @@ Update properties of invitations
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**invitation** | **string**|  | 
+**invitation** | **string**| string invitation (name or id) of the invitations | 
 
 ### Return type
 
@@ -436,7 +436,7 @@ Update properties of preferences
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**team** | **string**|  | 
+**team** | **string**| string team (name or id) of the preferences | 
 
 ### Return type
 
@@ -470,7 +470,7 @@ Update properties of team
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**team** | **string**|  | 
+**team** | **string**| string team (name or id) of the team | 
 
 ### Return type
 

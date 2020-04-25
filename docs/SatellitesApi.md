@@ -33,8 +33,8 @@ Add properties of pools
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**cloud** | **string**|  | 
-**satellite** | **string**|  | 
+**cloud** | **string**| string cloud (name or id) of the pools | 
+**satellite** | **string**| string satellite (name or id) of the pools | 
 
 ### Return type
 
@@ -68,7 +68,7 @@ Add properties of satellites
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**cloud** | **string**|  | 
+**cloud** | **string**| string cloud (name or id) of the satellites | 
 
 ### Return type
 
@@ -102,9 +102,9 @@ Create properties of metrics
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**cloud** | **string**|  | 
-**satellite** | **string**|  | 
-**pool** | **string**|  | 
+**cloud** | **string**| string cloud (name or id) of the metrics | 
+**satellite** | **string**| string satellite (name or id) of the metrics | 
+**pool** | **string**| string pool (name or id) of the metrics | 
 
 ### Return type
 
@@ -138,9 +138,9 @@ Delete properties of pool
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**cloud** | **string**|  | 
-**satellite** | **string**|  | 
-**pool** | **string**|  | 
+**cloud** | **string**| string cloud (name or id) of the pool | 
+**satellite** | **string**| string satellite (name or id) of the pool | 
+**pool** | **string**| string pool (name or id) of the pool | 
 
 ### Return type
 
@@ -174,8 +174,8 @@ Delete properties of satellite
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**cloud** | **string**|  | 
-**satellite** | **string**|  | 
+**cloud** | **string**| string cloud (name or id) of the satellite | 
+**satellite** | **string**| string satellite (name or id) of the satellite | 
 
 ### Return type
 
@@ -209,9 +209,9 @@ List properties of metrics
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**cloud** | **string**|  | 
-**satellite** | **string**|  | 
-**pool** | **string**|  | 
+**cloud** | **string**| string cloud (name or id) of the metrics | 
+**satellite** | **string**| string satellite (name or id) of the metrics | 
+**pool** | **string**| string pool (name or id) of the metrics | 
 
 ### Return type
 
@@ -245,8 +245,8 @@ List properties of pools
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**cloud** | **string**|  | 
-**satellite** | **string**|  | 
+**cloud** | **string**| string cloud (name or id) of the pools | 
+**satellite** | **string**| string satellite (name or id) of the pools | 
 
 ### Return type
 
@@ -280,7 +280,7 @@ List properties of satellites
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**cloud** | **string**|  | 
+**cloud** | **string**| string cloud (name or id) of the satellites | 
 
 ### Return type
 
@@ -314,9 +314,9 @@ Read properties of pool
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**cloud** | **string**|  | 
-**satellite** | **string**|  | 
-**pool** | **string**|  | 
+**cloud** | **string**| string cloud (name or id) of the pool | 
+**satellite** | **string**| string satellite (name or id) of the pool | 
+**pool** | **string**| string pool (name or id) of the pool | 
 
 ### Return type
 
@@ -350,8 +350,8 @@ Read properties of satellite
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**cloud** | **string**|  | 
-**satellite** | **string**|  | 
+**cloud** | **string**| string cloud (name or id) of the satellite | 
+**satellite** | **string**| string satellite (name or id) of the satellite | 
 
 ### Return type
 
@@ -385,9 +385,9 @@ Update properties of pool
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**cloud** | **string**|  | 
-**satellite** | **string**|  | 
-**pool** | **string**|  | 
+**cloud** | **string**| string cloud (name or id) of the pool | 
+**satellite** | **string**| string satellite (name or id) of the pool | 
+**pool** | **string**| string pool (name or id) of the pool | 
 
 ### Return type
 
@@ -421,8 +421,8 @@ Update properties of satellite
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**cloud** | **string**|  | 
-**satellite** | **string**|  | 
+**cloud** | **string**| string cloud (name or id) of the satellite | 
+**satellite** | **string**| string satellite (name or id) of the satellite | 
 
 ### Return type
 

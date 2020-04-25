@@ -84,7 +84,7 @@ Read properties of event
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 **ctx** | **context.Context** | context for authentication, logging, cancellation, deadlines, tracing, etc.
-**event** | **string**|  | 
+**event** | **string**| string event (name or id) of the event | 
 
 ### Return type
 

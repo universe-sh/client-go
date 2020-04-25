@@ -115,7 +115,7 @@ func (a *TeamsApiService) AddTeams(ctx _context.Context) (Generic, *_nethttp.Res
 DeleteInvitations Method for DeleteInvitations
 Delete properties of invitations
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param invitation
+ * @param invitation string invitation (name or id) of the invitations
 @return Generic
 */
 func (a *TeamsApiService) DeleteInvitations(ctx _context.Context, invitation string) (Generic, *_nethttp.Response, error) {
@@ -203,7 +203,7 @@ func (a *TeamsApiService) DeleteInvitations(ctx _context.Context, invitation str
 DeleteTeam Method for DeleteTeam
 Delete properties of team
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param team
+ * @param team string team (name or id) of the team
 @return Generic
 */
 func (a *TeamsApiService) DeleteTeam(ctx _context.Context, team string) (Generic, *_nethttp.Response, error) {
@@ -291,7 +291,7 @@ func (a *TeamsApiService) DeleteTeam(ctx _context.Context, team string) (Generic
 ListInvitations Method for ListInvitations
 List properties of invitations
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param team
+ * @param team string team (name or id) of the invitations
 @return []Invitation
 */
 func (a *TeamsApiService) ListInvitations(ctx _context.Context, team string) ([]Invitation, *_nethttp.Response, error) {
@@ -379,7 +379,7 @@ func (a *TeamsApiService) ListInvitations(ctx _context.Context, team string) ([]
 ListInvoices Method for ListInvoices
 List properties of invoices
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param team
+ * @param team string team (name or id) of the invoices
 @return []Invoice
 */
 func (a *TeamsApiService) ListInvoices(ctx _context.Context, team string) ([]Invoice, *_nethttp.Response, error) {
@@ -552,7 +552,7 @@ func (a *TeamsApiService) ListTeams(ctx _context.Context) ([]Team, *_nethttp.Res
 ReadInvitations Method for ReadInvitations
 Read properties of invitations
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param invitation
+ * @param invitation string invitation (name or id) of the invitations
 @return []Invitation
 */
 func (a *TeamsApiService) ReadInvitations(ctx _context.Context, invitation string) ([]Invitation, *_nethttp.Response, error) {
@@ -640,7 +640,7 @@ func (a *TeamsApiService) ReadInvitations(ctx _context.Context, invitation strin
 ReadInvitationsAccept Method for ReadInvitationsAccept
 Read properties of invitationsaccept
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param invitation
+ * @param invitation string invitation (name or id) of the invitationsaccept
 @return Invitation
 */
 func (a *TeamsApiService) ReadInvitationsAccept(ctx _context.Context, invitation string) (Invitation, *_nethttp.Response, error) {
@@ -728,8 +728,8 @@ func (a *TeamsApiService) ReadInvitationsAccept(ctx _context.Context, invitation
 ReadInvoice Method for ReadInvoice
 Read properties of invoice
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param team
- * @param invoice
+ * @param team string team (name or id) of the invoice
+ * @param invoice string invoice (name or id) of the invoice
 @return Invoice
 */
 func (a *TeamsApiService) ReadInvoice(ctx _context.Context, team string, invoice string) (Invoice, *_nethttp.Response, error) {
@@ -819,7 +819,7 @@ func (a *TeamsApiService) ReadInvoice(ctx _context.Context, team string, invoice
 ReadPreferences Method for ReadPreferences
 Read properties of preferences
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param team
+ * @param team string team (name or id) of the preferences
 @return Preferences
 */
 func (a *TeamsApiService) ReadPreferences(ctx _context.Context, team string) (Preferences, *_nethttp.Response, error) {
@@ -907,7 +907,7 @@ func (a *TeamsApiService) ReadPreferences(ctx _context.Context, team string) (Pr
 ReadTeam Method for ReadTeam
 Read properties of team
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param team
+ * @param team string team (name or id) of the team
 @return Team
 */
 func (a *TeamsApiService) ReadTeam(ctx _context.Context, team string) (Team, *_nethttp.Response, error) {
@@ -995,7 +995,7 @@ func (a *TeamsApiService) ReadTeam(ctx _context.Context, team string) (Team, *_n
 UpdateInvitations Method for UpdateInvitations
 Update properties of invitations
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param invitation
+ * @param invitation string invitation (name or id) of the invitations
 @return []Invitation
 */
 func (a *TeamsApiService) UpdateInvitations(ctx _context.Context, invitation string) ([]Invitation, *_nethttp.Response, error) {
@@ -1083,7 +1083,7 @@ func (a *TeamsApiService) UpdateInvitations(ctx _context.Context, invitation str
 UpdatePreferences Method for UpdatePreferences
 Update properties of preferences
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param team
+ * @param team string team (name or id) of the preferences
 @return Preferences
 */
 func (a *TeamsApiService) UpdatePreferences(ctx _context.Context, team string) (Preferences, *_nethttp.Response, error) {
@@ -1171,7 +1171,7 @@ func (a *TeamsApiService) UpdatePreferences(ctx _context.Context, team string) (
 UpdateTeam Method for UpdateTeam
 Update properties of team
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param team
+ * @param team string team (name or id) of the team
 @return Team
 */
 func (a *TeamsApiService) UpdateTeam(ctx _context.Context, team string) (Team, *_nethttp.Response, error) {

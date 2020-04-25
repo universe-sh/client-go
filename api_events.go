@@ -200,7 +200,7 @@ func (a *EventsApiService) ListEvents(ctx _context.Context) ([]Event, *_nethttp.
 ReadEvent Method for ReadEvent
 Read properties of event
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param event
+ * @param event string event (name or id) of the event
 @return Event
 */
 func (a *EventsApiService) ReadEvent(ctx _context.Context, event string) (Event, *_nethttp.Response, error) {

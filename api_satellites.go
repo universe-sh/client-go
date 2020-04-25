@@ -30,8 +30,8 @@ type SatellitesApiService service
 AddPools Method for AddPools
 Add properties of pools
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param cloud
- * @param satellite
+ * @param cloud string cloud (name or id) of the pools
+ * @param satellite string satellite (name or id) of the pools
 @return Generic
 */
 func (a *SatellitesApiService) AddPools(ctx _context.Context, cloud string, satellite string) (Generic, *_nethttp.Response, error) {
@@ -121,7 +121,7 @@ func (a *SatellitesApiService) AddPools(ctx _context.Context, cloud string, sate
 AddSatellites Method for AddSatellites
 Add properties of satellites
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param cloud
+ * @param cloud string cloud (name or id) of the satellites
 @return Generic
 */
 func (a *SatellitesApiService) AddSatellites(ctx _context.Context, cloud string) (Generic, *_nethttp.Response, error) {
@@ -209,9 +209,9 @@ func (a *SatellitesApiService) AddSatellites(ctx _context.Context, cloud string)
 CreateMetrics Method for CreateMetrics
 Create properties of metrics
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param cloud
- * @param satellite
- * @param pool
+ * @param cloud string cloud (name or id) of the metrics
+ * @param satellite string satellite (name or id) of the metrics
+ * @param pool string pool (name or id) of the metrics
 @return Generic
 */
 func (a *SatellitesApiService) CreateMetrics(ctx _context.Context, cloud string, satellite string, pool string) (Generic, *_nethttp.Response, error) {
@@ -303,9 +303,9 @@ func (a *SatellitesApiService) CreateMetrics(ctx _context.Context, cloud string,
 DeletePool Method for DeletePool
 Delete properties of pool
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param cloud
- * @param satellite
- * @param pool
+ * @param cloud string cloud (name or id) of the pool
+ * @param satellite string satellite (name or id) of the pool
+ * @param pool string pool (name or id) of the pool
 @return Generic
 */
 func (a *SatellitesApiService) DeletePool(ctx _context.Context, cloud string, satellite string, pool string) (Generic, *_nethttp.Response, error) {
@@ -397,8 +397,8 @@ func (a *SatellitesApiService) DeletePool(ctx _context.Context, cloud string, sa
 DeleteSatellite Method for DeleteSatellite
 Delete properties of satellite
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param cloud
- * @param satellite
+ * @param cloud string cloud (name or id) of the satellite
+ * @param satellite string satellite (name or id) of the satellite
 @return Generic
 */
 func (a *SatellitesApiService) DeleteSatellite(ctx _context.Context, cloud string, satellite string) (Generic, *_nethttp.Response, error) {
@@ -488,9 +488,9 @@ func (a *SatellitesApiService) DeleteSatellite(ctx _context.Context, cloud strin
 ListMetrics Method for ListMetrics
 List properties of metrics
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param cloud
- * @param satellite
- * @param pool
+ * @param cloud string cloud (name or id) of the metrics
+ * @param satellite string satellite (name or id) of the metrics
+ * @param pool string pool (name or id) of the metrics
 @return []Metric
 */
 func (a *SatellitesApiService) ListMetrics(ctx _context.Context, cloud string, satellite string, pool string) ([]Metric, *_nethttp.Response, error) {
@@ -582,8 +582,8 @@ func (a *SatellitesApiService) ListMetrics(ctx _context.Context, cloud string, s
 ListPools Method for ListPools
 List properties of pools
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param cloud
- * @param satellite
+ * @param cloud string cloud (name or id) of the pools
+ * @param satellite string satellite (name or id) of the pools
 @return []Pool
 */
 func (a *SatellitesApiService) ListPools(ctx _context.Context, cloud string, satellite string) ([]Pool, *_nethttp.Response, error) {
@@ -673,7 +673,7 @@ func (a *SatellitesApiService) ListPools(ctx _context.Context, cloud string, sat
 ListSatellites Method for ListSatellites
 List properties of satellites
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param cloud
+ * @param cloud string cloud (name or id) of the satellites
 @return []Satellite
 */
 func (a *SatellitesApiService) ListSatellites(ctx _context.Context, cloud string) ([]Satellite, *_nethttp.Response, error) {
@@ -761,9 +761,9 @@ func (a *SatellitesApiService) ListSatellites(ctx _context.Context, cloud string
 ReadPool Method for ReadPool
 Read properties of pool
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param cloud
- * @param satellite
- * @param pool
+ * @param cloud string cloud (name or id) of the pool
+ * @param satellite string satellite (name or id) of the pool
+ * @param pool string pool (name or id) of the pool
 @return Pool
 */
 func (a *SatellitesApiService) ReadPool(ctx _context.Context, cloud string, satellite string, pool string) (Pool, *_nethttp.Response, error) {
@@ -855,8 +855,8 @@ func (a *SatellitesApiService) ReadPool(ctx _context.Context, cloud string, sate
 ReadSatellite Method for ReadSatellite
 Read properties of satellite
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param cloud
- * @param satellite
+ * @param cloud string cloud (name or id) of the satellite
+ * @param satellite string satellite (name or id) of the satellite
 @return Satellite
 */
 func (a *SatellitesApiService) ReadSatellite(ctx _context.Context, cloud string, satellite string) (Satellite, *_nethttp.Response, error) {
@@ -946,9 +946,9 @@ func (a *SatellitesApiService) ReadSatellite(ctx _context.Context, cloud string,
 UpdatePool Method for UpdatePool
 Update properties of pool
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param cloud
- * @param satellite
- * @param pool
+ * @param cloud string cloud (name or id) of the pool
+ * @param satellite string satellite (name or id) of the pool
+ * @param pool string pool (name or id) of the pool
 @return Pool
 */
 func (a *SatellitesApiService) UpdatePool(ctx _context.Context, cloud string, satellite string, pool string) (Pool, *_nethttp.Response, error) {
@@ -1040,8 +1040,8 @@ func (a *SatellitesApiService) UpdatePool(ctx _context.Context, cloud string, sa
 UpdateSatellite Method for UpdateSatellite
 Update properties of satellite
  * @param ctx _context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- * @param cloud
- * @param satellite
+ * @param cloud string cloud (name or id) of the satellite
+ * @param satellite string satellite (name or id) of the satellite
 @return Satellite
 */
 func (a *SatellitesApiService) UpdateSatellite(ctx _context.Context, cloud string, satellite string) (Satellite, *_nethttp.Response, error) {
